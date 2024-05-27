@@ -1,0 +1,121 @@
+:root {
+    --basic_background: #282f4b;
+    --basic-text_color: #fff;
+    --border-color: #c4c4c4;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+/* utils */
+.d-flex_h {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.d-flex_v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.d-flex_h__between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Header section */
+header nav {
+    background-color: var(--basic_background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1000;
+}
+.nav .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.menu-links a {
+    color: var(--basic-text_color);
+    text-decoration: none;
+}
+.menu-links a:hover {
+    border-bottom: 2px solid var(--border-color);
+}
+.menu-links a.active {
+    border-bottom: 2px solid var(--border-color);
+    color: #a1a7a7;
+}
+
+
+.profile-img {
+    border-radius: 100px;
+    height: 45px;
+    width: 45px;
+    border: 1px solid var(--border-color);
+}
+.profile-img img {
+    max-width: 100%;
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+}
+.profile-name {
+    color: var(--basic-text_color);
+}
+
+.hamburger-btn {
+    display: none;
+    cursor: pointer;
+}
+.close-btn {
+    display: none;
+    cursor: pointer;
+}
+.show {
+    display: flex !important;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: block;
+    }
+    .menu-links {
+        flex-direction: column;
+        position: absolute;
+        background-color: var(--basic_background);
+        width: 20%;
+        height: 160px;
+        right: 0;
+        top: 50px;
+        padding: 20px;
+        z-index: 1000;
+        display: none;
+    }
+}
+
+
+
+
+/* Main Section */
+h2 {
+    display: none;
+}
