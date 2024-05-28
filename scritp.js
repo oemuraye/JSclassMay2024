@@ -131,68 +131,131 @@ const changeBtn = document.querySelector("#changeText-btn");
 const changeStyleBtn = document.querySelector(".change_style-btn");
 
 
-showBtn.addEventListener("click", () => {
-    greetingText.style.display = "block";
-}) 
+// showBtn.addEventListener("click", () => {
+//     greetingText.style.display = "block";
+// }) 
 
-// innerText
-// innerHTML
-// textContent
-changeBtn.addEventListener("click", () => {
-    greetingText.innerText = 'Good Afternoon Everyone'
-    // greetingText.textContent = '<h6>Good Afternoon Everyone.</h6>'
-    // greetingText.innerHTML = `
-    //     <ul>
-    //         <li>rf</li>
-    //         <li>rf</li>
-    //         <li>rf</li>
-    //         <li>rf</li>
-    //     </ul>    
-    // `;
-}) 
-
-
-changeStyleBtn.addEventListener("click", () => {
-    greetingText.style.cssText = `
-        color: red;
-        padding: 8px; 
-    `;
-});
-
-// Menu List Toggle
-const menuList = document.querySelector('.menu-links');
-const hamburgerBtn = document.querySelector('.hamburger-btn');
-const hamburgerCloseBtn = document.querySelector('.close-btn');
+// // innerText
+// // innerHTML
+// // textContent
+// changeBtn.addEventListener("click", () => {
+//     greetingText.innerText = 'Good Afternoon Everyone'
+//     // greetingText.textContent = '<h6>Good Afternoon Everyone.</h6>'
+//     // greetingText.innerHTML = `
+//     //     <ul>
+//     //         <li>rf</li>
+//     //         <li>rf</li>
+//     //         <li>rf</li>
+//     //         <li>rf</li>
+//     //     </ul>    
+//     // `;
+// }) 
 
 
-hamburgerBtn.addEventListener('click', () => {
-    if (menuList.style.display == 'flex') {
-        menuList.style.display = 'none';
-    } else {
-        menuList.style.display = 'flex';
-    }
-    // menuList.style.display = 'flex';
-    // hamburgerBtn.style.display = 'none';
-    // hamburgerCloseBtn.style.display = 'block';
-});
-
-// hamburgerCloseBtn.addEventListener('click', () => {
-//     menuList.style.display = 'none';
-//     hamburgerBtn.style.display = 'block';
-//     hamburgerCloseBtn.style.display = 'none';
+// changeStyleBtn.addEventListener("click", () => {
+//     greetingText.style.cssText = `
+//         color: red;
+//         padding: 8px; 
+//     `;
 // });
 
-// hamburgerBtn.addEventListener('click', () => {
-//     menuList.classList.toggle('show');
-// });
+// // Menu List Toggle
+// const menuList = document.querySelector('.menu-links');
+// const hamburgerBtn = document.querySelector('.hamburger-btn');
+// const hamburgerCloseBtn = document.querySelector('.close-btn');
 
-// for font-awesome
+
 // hamburgerBtn.addEventListener('click', () => {
 //     if (menuList.style.display == 'flex') {
-//         menuList.classList.remove('fa-bars')
-//         menuList.classList.add('fa-times')
+//         menuList.style.display = 'none';
 //     } else {
-//         menuList.classList.remove('fa-bars')
-//         menuList.classList.add('fa-times')
+//         menuList.style.display = 'flex';
 //     }
+//     // menuList.style.display = 'flex';
+//     // hamburgerBtn.style.display = 'none';
+//     // hamburgerCloseBtn.style.display = 'block';
+// });
+
+// // hamburgerCloseBtn.addEventListener('click', () => {
+// //     menuList.style.display = 'none';
+// //     hamburgerBtn.style.display = 'block';
+// //     hamburgerCloseBtn.style.display = 'none';
+// // });
+
+// // hamburgerBtn.addEventListener('click', () => {
+// //     menuList.classList.toggle('show');
+// // });
+
+// // for font-awesome
+// // hamburgerBtn.addEventListener('click', () => {
+// //     if (menuList.style.display == 'flex') {
+// //         menuList.classList.remove('fa-bars')
+// //         menuList.classList.add('fa-times')
+// //     } else {
+// //         menuList.classList.remove('fa-bars')
+// //         menuList.classList.add('fa-times')
+// //     }
+// // });
+
+
+// Form Validation
+
+const authForm = document.getElementById('auth-form');
+const formBtn = document.querySelector('auth-form');
+
+const firstName = document.getElementById('first-name');
+const lastName = document.getElementById('last-name');
+const email = document.getElementById('email');
+const phone = document.getElementById('number');
+const password = document.getElementById('password');
+const genderMale = document.getElementById('male');
+const genderFemale = document.getElementById('female');
+const occupationSelect = document.getElementById('occupation');
+const remember = document.getElementById('remember');
+
+const alertMsg = document.querySelector('.alert-message');
+
+
+
+authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+  
+    if (
+        firstName.value === "" 
+        || lastName.value === ""
+        || email.value === ""
+        || phone.value === ""
+        || password.value === ""
+    ) {
+        console.log('Please fill all fields');
+    } if (password === "password") {
+        console.log('Password should not be password');    
+    } if (password < 8) {
+        console.log("password must be at least 8 characters");
+    } if (genderMale.checked == false && genderFemale.checked == false) {
+        console.log('Choose a gender');   
+    } if (occupationSelect.value === "") {
+        console.log('Please select an occupation category');
+    } else {
+        const userData = {
+            "firstName": firstName.value,
+            "lastName": lastName.value,
+            "email": email.value,
+            "phone": phone.value,
+            "password": password.value,
+            "gender": genderMale.checked ? genderMale.value : genderFemale.value,
+            "remember": remember.checked ? "yes" : "no"
+        }
+        console.log(userData);
+        window.location.href = './index.html';
+    }
+    
+});
+
+
+
+// formBtn.addEventListener('click', (e) => {
+//     e.preventDefault();
+
+
 // });

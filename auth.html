@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./scritp.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <section class="menu">
+                <a href="/index.html" class="logo">
+                    <img src="./Fictional company logo.png" alt="logo">
+                </a>
+                <ul class="menu-links">
+                    <li><a href="" class="active">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Service</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="./auth.html">Login</a></li>
+                </ul>
+            </section>
+            <section class="profile-info d-flex_h">
+                <div class="profile-img">
+                    <img src="./userImg.png" alt="profImg" width="100%">
+                </div>
+                <h3 class="profile-name">Henry Pius</h3>
+                <img class="hamburger-btn" src="./menuBtn.png" alt="menuBtn">
+                <img class="close-btn" src="./icons8-close-button-80.png" alt="menuBtn" width="35px">
+                <!-- <span class="fa fa-bars"></span> -->
+            </section>
+        </nav>
+    </header>
+
+    <section class="auth-section">
+        <form id="auth-form">
+            <div>
+                <label for="first-name">First Name</label>
+                <input type="text" name="first-name" id="first-name">
+            </div>
+            <div>
+                <label for="last-name">Last Name</label>
+                <input type="text" name="last-name" id="last-name">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label for="number">Phone Number</label>
+                <input type="number" name="number" id="number">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <span>
+                <label for="gender">Gender</label>
+                <input type="radio" value="male" name="gender" id="male"> <span>Male</span>
+                <input type="radio" value="female" name="gender" id="female"> <span>Female</span>
+            </span>
+            <div>
+                <label for="occupation">Occupation</label>
+                <select name="occupation" id="occupation">
+                    <option value="">choose</option>
+                    <option value="employed">Employed</option>
+                    <option value="unemployed">Unemployed</option>
+                    <option value="self-employed">Self Employed</option>
+                </select>
+            </div>
+            <span>
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember Me</label>
+            </span>
+            <div class="alert-message"></div>
+            <div><button>Submit</button></div>
+        </form>
+    </section>
+</body>
+</html>
