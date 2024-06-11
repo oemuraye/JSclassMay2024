@@ -217,40 +217,40 @@ const alertMsg = document.querySelector('.alert-message');
 
 
 
-authForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// authForm.addEventListener('submit', (e) => {
+//     e.preventDefault();
   
-    if (
-        firstName.value === "" 
-        || lastName.value === ""
-        || email.value === ""
-        || phone.value === ""
-        || password.value === ""
-    ) {
-        console.log('Please fill all fields');
-    } if (password === "password") {
-        console.log('Password should not be password');    
-    } if (password < 8) {
-        console.log("password must be at least 8 characters");
-    } if (genderMale.checked == false && genderFemale.checked == false) {
-        console.log('Choose a gender');   
-    } if (occupationSelect.value === "") {
-        console.log('Please select an occupation category');
-    } else {
-        const userData = {
-            "firstName": firstName.value,
-            "lastName": lastName.value,
-            "email": email.value,
-            "phone": phone.value,
-            "password": password.value,
-            "gender": genderMale.checked ? genderMale.value : genderFemale.value,
-            "remember": remember.checked ? "yes" : "no"
-        }
-        console.log(userData);
-        window.location.href = './index.html';
-    }
+//     if (
+//         firstName.value === "" 
+//         || lastName.value === ""
+//         || email.value === ""
+//         || phone.value === ""
+//         || password.value === ""
+//     ) {
+//         console.log('Please fill all fields');
+//     } if (password === "password") {
+//         console.log('Password should not be password');    
+//     } if (password < 8) {
+//         console.log("password must be at least 8 characters");
+//     } if (genderMale.checked == false && genderFemale.checked == false) {
+//         console.log('Choose a gender');   
+//     } if (occupationSelect.value === "") {
+//         console.log('Please select an occupation category');
+//     } else {
+//         const userData = {
+//             "firstName": firstName.value,
+//             "lastName": lastName.value,
+//             "email": email.value,
+//             "phone": phone.value,
+//             "password": password.value,
+//             "gender": genderMale.checked ? genderMale.value : genderFemale.value,
+//             "remember": remember.checked ? "yes" : "no"
+//         }
+//         console.log(userData);
+//         window.location.href = './index.html';
+//     }
     
-});
+// });
 
 
 
@@ -259,3 +259,16 @@ authForm.addEventListener('submit', (e) => {
 
 
 // });
+
+// change class of active
+const menuLinks = document.querySelectorAll('.menu-links a');
+let currentPage = window.location.pathname;
+
+
+menuLinks.forEach((item) => {
+    if (item.getAttribute('href') === currentPage) {
+        item.classList.add('active');
+    } else {
+        item.classList.remove('active');        
+    }
+})
