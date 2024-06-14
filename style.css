@@ -38,7 +38,7 @@ header nav {
     align-items: center;
     gap: 10px;
     padding: 5px 10px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     position: relative;
     z-index: 1000;
 }
@@ -116,10 +116,60 @@ header nav {
 
 
 /* Main Section */
-h2 {
-    display: none;
+
+.hero_section {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+.hero_section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+.hero-text {
+    z-index: 2;
+    position: absolute;
+    color: #fff;
+    max-width: 400px;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.prev {
+    left: 10px;
+}
+.next {
+    right: 10px;
 }
 
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    z-index: 10;
+}
 
 /* Auth Section */
 .auth-section form {

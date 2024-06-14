@@ -272,3 +272,106 @@ menuLinks.forEach((item) => {
         item.classList.remove('active');        
     }
 })
+
+
+// Carousel/Image slider 
+let currentIndex = 0;
+const images = [
+    "./slider1.jpg",
+    "./slider2.jpg",
+    "./slider3.jpg"
+];
+const sliderImage = document.querySelector('.hero_section img');
+
+const showSlide = (index) => {
+    currentIndex = (index + images.length) % images.length;
+    sliderImage.src = images[currentIndex];
+}; 
+
+const nextSlide = () => {
+    showSlide(currentIndex + 1)
+}
+const prevSlide = () => {
+    showSlide(currentIndex - 1)
+}
+
+setInterval(() => {
+    showSlide(currentIndex + 1);
+}, 5000);
+
+
+
+// Scroll to the top button
+
+window.onscroll = () => {
+    const scrollToTop = document.getElementById('scrollToTopBtn');
+    if (
+      document.body.scrollTop >= 250 ||
+      document.documentElement.scrollTop >= 250
+    ) {
+      scrollToTop.style.display = "block";
+    } else {
+      scrollToTop.style.display = "none";
+    }
+};
+
+// Back to Top Function
+const scrollToTheTop = () => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+
+
+// api practice
+document.getElementById('fetchButton').addEventListener('click', fetchUser);
+
+function fetchUser() {
+    fetch('https://randomuser.me/api/')
+        .then(response => response.json())
+        .then(data => {
+            let user = data.results[0];
+            console.log(user);
+            let userInfo = `
+                <p>Name: ${user.name.first} ${user.name.last}</p>
+                <p>Email: ${user.email}</p>
+                <p>Location: ${user.location.city}, ${user.location.country}</p>
+                <img src="${user.picture.medium}" alt="User Picture">
+            `;
+            document.getElementById('userInfo').innerHTML = userInfo;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+
+document.getElementById('postButton').addEventListener('click', postData);
+
+const postData = async () => {
+    let url = 'https://jsonplaceholder.typicode.com/posts';
+    let data = {
+        title: 'foo',
+        body: 'bar',
+        userId: 1
+    };
+
+    try {
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        let responseData = await response.json();
+        document.getElementById('response').innerHTML = `
+            <p>ID: ${responseData.id}</p>
+            <p>Title: ${responseData.title}</p>
+            <p>Body: ${responseData.body}</p>
+        `;
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('response').innerHTML = '<p>Error sending data. Please try again later.</p>';
+    }
+}
